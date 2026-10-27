@@ -29,7 +29,7 @@ import Toast from '../components/Toast';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { getUserAvatar } from '../utils/avatar';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+import { API_BASE_URL } from '../config/api';
 
 const StudentDashboard = () => {
   const { user } = useAuth();

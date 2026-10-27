@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { getUserAvatar } from '../utils/avatar';
@@ -96,7 +97,7 @@ const Navbar = () => {
     const fetchResults = async () => {
       try {
         setSearchLoading(true);
-        const res = await axios.get(`http://localhost:5000/api/student/search?q=${encodeURIComponent(searchQuery)}`);
+        const res = await axios.get(`${API_BASE_URL}/student/search?q=${encodeURIComponent(searchQuery)}`);
         if (res.data.success && isMounted) {
           setSearchResults(res.data.students || []);
         }

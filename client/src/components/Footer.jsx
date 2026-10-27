@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { API_BASE_URL } from '../config/api';
 import {
   BrainCircuit,
   ShieldCheck,
@@ -110,7 +111,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="http://localhost:5000/api"
+                  href={API_BASE_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-indigo-400 transition-colors no-underline flex items-center gap-1.5"

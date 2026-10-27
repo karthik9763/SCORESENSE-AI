@@ -5,7 +5,7 @@ import { User, Mail, Phone, Lock, BookOpen, Shield, Save, Eye, EyeOff, CheckCirc
 import Toast from '../components/Toast';
 import { getUserAvatar } from '../utils/avatar';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+import { API_BASE_URL } from '../config/api';
 
 const StudentProfilePage = () => {
   const { user, updateUser, openLogoutModal } = useAuth();

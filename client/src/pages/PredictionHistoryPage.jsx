@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 import { useAuth } from '../context/AuthContext';
 import {
   History, Search, Trash2, Eye, Download, Filter, Calendar, Award, CheckCircle, AlertTriangle
@@ -51,7 +52,7 @@ const PredictionHistoryPage = () => {
 
   const fetchHistory = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/student/history');
+      const res = await axios.get(`${API_BASE_URL}/student/history`);
       if (res.data.success) {
         setHistory(res.data.history);
         setFilteredHistory(res.data.history);
@@ -132,7 +133,7 @@ const PredictionHistoryPage = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this prediction log?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/student/history/${id}`);
+      await axios.delete(`${API_BASE_URL}/student/history/${id}`);
       setToast({ message: 'Record deleted successfully', type: 'success' });
       setHistory(history.filter((item) => item._id !== id));
     } catch (err) {

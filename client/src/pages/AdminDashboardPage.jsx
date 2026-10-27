@@ -34,7 +34,7 @@ import { getUserAvatar } from '../utils/avatar';
 import { exportToCSV } from '../utils/exportCsv';
 import { exportToExcel } from '../utils/exportExcel';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+import { API_BASE_URL } from '../config/api';
 
 const AdminDashboardPage = () => {
   const { user, openLogoutModal } = useAuth();

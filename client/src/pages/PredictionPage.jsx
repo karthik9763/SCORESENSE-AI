@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api';
 import { useAuth } from '../context/AuthContext';
 import {
   BrainCircuit,
@@ -64,7 +65,7 @@ const PredictionPage = () => {
 
   const fetchStudentProfile = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/student/dashboard');
+      const res = await axios.get(`${API_BASE_URL}/student/dashboard`);
       if (res.data.success && res.data.student) {
         const s = res.data.student;
         const latest = res.data.latestPrediction;
@@ -137,7 +138,7 @@ const PredictionPage = () => {
 
     setTimeout(async () => {
       try {
-        const res = await axios.post('http://localhost:5000/api/student/predict', formData);
+        const res = await axios.post(`${API_BASE_URL}/student/predict`, formData);
         if (res.data.success) {
           setPredictionResult(res.data.prediction);
           setShowModal(true);

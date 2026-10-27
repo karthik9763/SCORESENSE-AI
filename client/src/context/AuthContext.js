@@ -4,7 +4,7 @@ import SignOutModal from '../components/SignOutModal';
 
 const AuthContext = createContext();
 
-const API_BASE_URL = 'http://localhost:5000/api';
+import { API_BASE_URL } from '../config/api';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
